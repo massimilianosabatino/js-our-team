@@ -33,6 +33,8 @@ const members = [
     }
 ];
 
+const altText = 'Foto profilo'
+
 //Page element
 const cardBoard = document.getElementById('card-board');
 
@@ -50,6 +52,7 @@ function createCard(cardTitle, cardText, cardImg) {
     
     const img = document.createElement('img');
     img.src = cardImg;
+    img.alt = `${altText} di ${cardTitle}`;
     addClass(img, 'card-img-top', 'rounded-0');
     divCard.appendChild(img);
     
