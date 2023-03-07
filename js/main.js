@@ -40,6 +40,7 @@ const cardBoard = document.getElementById('card-board');
 const newName = document.getElementById('name');
 const newRole = document.getElementById('role');
 const newPhoto = document.getElementById('url-photo');
+const newPhotoFile = document.getElementById('formFile');
 const cardNumber = document.getElementById('card-number');
 const addButton = document.getElementsByClassName('btn-primary')[1];
 const removeButton = document.getElementsByClassName('btn-primary')[2];
@@ -89,6 +90,8 @@ function addCard(){
     const member = members[members.length - 1];
     if(newPhoto.value.startsWith('http')){
         createCard(member.name, member.role, newPhoto.value); 
+    } else if (newPhoto.value === '' && newPhotoFile.value !== ''){
+        createCard(member.name, member.role, `img/${newPhotoFile.files[0].name}`);
     } else {
         createCard(member.name, member.role, `img/${member.photo}`);
     }
