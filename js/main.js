@@ -37,6 +37,12 @@ const altText = 'Foto profilo'
 
 //Page element
 const cardBoard = document.getElementById('card-board');
+const newName = document.getElementById('name');
+const newRole = document.getElementById('role');
+const newPhoto = document.getElementById('url-photo');
+const cardNumber = document.getElementById('card-number');
+const addButton = document.getElementsByClassName('btn-primary')[1];
+const removeButton = document.getElementsByClassName('btn-primary')[2];
 
 /*
 *  Functions
@@ -78,6 +84,29 @@ function addClass (htmlElement, ...args) {
     for (let arg of args) htmlElement.classList.add(...args)
 }
 
+//Add new card from user input
+function addCard(){
+    const member = members[members.length - 1];
+    if(newPhoto.value.startsWith('http')){
+        createCard(member.name, member.role, newPhoto.value); 
+    } else {
+        createCard(member.name, member.role, `img/${member.photo}`);
+    }
+}
+
+//Remove card by selecting his number on page
+function removeCard(){
+const cardSelected = document.querySelector(`.card-single:nth-child(${cardNumber.value})`);
+cardBoard.removeChild(cardSelected);
+}
+
+//Clear all field
+function clearField(){
+const inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
+    input.value = '';
+  })
+}
 
 /*
 *  Main
@@ -88,4 +117,16 @@ for (let i = 0; i < members.length; i++) {
     createCard(member.name, member.role, `img/${member.photo}`)
 }
 
+//Save data to a new card
+addButton.addEventListener('click', function(){
+    const newCardObj = {name: newName.value, role: newRole.value, photo: newPhoto.value}
+    members.push(newCardObj);
+    addCard();
+    clearField();
+})
 
+//Remove selected card
+removeButton.addEventListener('click', function(){
+    removeCard();
+    clearField();
+});
