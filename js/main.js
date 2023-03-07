@@ -1,12 +1,5 @@
 'use strict';
 
-// Wayne Barnett	Founder & CEO	wayne-barnett-founder-ceo.jpg
-// Angela Caroll	Chief Editor	angela-caroll-chief-editor.jpg
-// Walter Gordon	Office Manager	walter-gordon-office-manager.jpg
-// Angela Lopez	Social Media Manager	angela-lopez-social-media-manager.jpg
-// Scott Estrada	Developer	scott-estrada-developer.jpg
-// Barbara Ramos	Graphic Designer	barbara-ramos-graphic-designer.jpg
-
 const members = [
     {
         name: 'Wayne Barnett',
@@ -40,6 +33,7 @@ const members = [
     }
 ]
 
+/*
 //Stampa intero array
 console.log(members);
 //Stampa oggetto contenuto in posizione 0 dell'array
@@ -48,3 +42,21 @@ console.log(members[0]);
 console.log(members[0].name);
 console.log(members[0].role);
 console.log(members[0].photo);
+*/
+
+//Ciclo all'interno dell'array per estrapolare i singoli oggetti
+for (let i = 0; i < members.length; i++){
+    const member = members[i];
+    //Stampa ogni singolo oggetto presente nell'array
+    //console.log(member);
+    //Ciclo all'interno di un oggetto per estrapolare i valori delle singole chiavi
+    for (const key in member) {
+        /*
+        //Stampa prima il nome della chiave e poi il valore
+        console.log(key);
+        console.log(member[key]);
+        */
+       //Stampa il valore di ogni chiave dell'oggetto 
+        console.log(member[key]);
+    }
+}
