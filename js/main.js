@@ -66,7 +66,8 @@ console.log(members[0].photo);
 //Ciclo all'interno dell'array per estrapolare i singoli oggetti
 for (let i = 0; i < members.length; i++) {
     const member = members[i];
-    let memberValue = [];
+    //let memberValue = [];
+    //Per ogni ciclo crea un div dove appendere i vari elementi
     const div = createDomElement('div', '');
     //Stampa ogni singolo oggetto presente nell'array
     //console.log(member);
@@ -81,6 +82,8 @@ for (let i = 0; i < members.length; i++) {
         console.log(member[key]);
         //Inserisce in un array i singoli valori
         //memberValue.push(member[key]);
+
+        //Controlla se il valore è un url o no e inserisce tutto in tag p da inserire nel div contenitore
         if (key === 'photo') {
             const img = createDomElement('img', '');
             img.src = `img/${member[key]}`;
@@ -90,7 +93,7 @@ for (let i = 0; i < members.length; i++) {
             div.append(pTag);
         }
     }
-    //Per ogni ciclo crea un div con tutti i valori dell'array memberValue (ossia i singoli valori di ogni oggetto)
+
     body.append(div);
 
 }
