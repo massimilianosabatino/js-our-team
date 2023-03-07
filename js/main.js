@@ -31,7 +31,26 @@ const members = [
         role: 'Graphic Designer',
         photo: 'barbara-ramos-graphic-designer.jpg',
     }
-]
+];
+
+//Page element
+const body = document.querySelector('body');
+//const div = createDomElement('div');
+
+
+/*
+*  Functions
+*/
+function createDomElement (elementTag, text){
+    const fragment = document.createDocumentFragment();
+    const element = document.createElement(elementTag);
+    element.innerText = text;
+    fragment.append(element);
+    return fragment;
+}
+
+
+
 
 /*
 //Stampa intero array
@@ -47,6 +66,7 @@ console.log(members[0].photo);
 //Ciclo all'interno dell'array per estrapolare i singoli oggetti
 for (let i = 0; i < members.length; i++){
     const member = members[i];
+    let memberValue = [];
     //Stampa ogni singolo oggetto presente nell'array
     //console.log(member);
     //Ciclo all'interno di un oggetto per estrapolare i valori delle singole chiavi
@@ -57,6 +77,14 @@ for (let i = 0; i < members.length; i++){
         console.log(member[key]);
         */
        //Stampa il valore di ogni chiave dell'oggetto 
-        console.log(member[key]);
+       console.log(member[key]);
+       //Inserisce in un array i singoli valori
+       memberValue.push(member[key]);
     }
+    //Per ogni ciclo crea un div con tutti i valori dell'array memberValue (ossia i singoli valori di ogni oggetto)
+    const div = createDomElement('div', memberValue);
+    body.append(div);
+    
 }
+
+
