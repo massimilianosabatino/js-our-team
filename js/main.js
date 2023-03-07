@@ -49,6 +49,45 @@ function createDomElement(elementTag, text) {
     return element;
 }
 
+function createCard() {
+    const divCardSingle = document.createElement('div');
+    // divCardSingle.classList.add('card-single', 'col-4', 'mb-4', 'text-center');
+    addClass(divCardSingle, 'card-single', 'col-4', 'mb-4', 'text-center');
+    
+    const divCard = document.createElement('div');
+    //divCard.classList.add('card', 'border-0', 'rounded-0');
+    addClass(divCard, 'card', 'border-0', 'rounded-0');
+    divCardSingle.appendChild(divCard);
+    
+    const img = document.createElement('img');
+    img.src = 'prova';
+    // img.classList.add('card-img-top', 'rounded-0')
+    addClass(img, 'card-img-top', 'rounded-0');
+    divCard.appendChild(img);
+    
+    const divCardBody = document.createElement('div');
+    // divCardBody.classList.add('card-boy', 'rounded-0');
+    addClass(divCardBody, 'card-boy', 'rounded-0');
+    divCard.appendChild(divCardBody);
+    
+    const h5Tag = document.createElement('h5');
+    // h5Tag.classList.add('card-title');
+    addClass(h5Tag, 'card-title')
+    divCardBody.appendChild(h5Tag);
+    
+    const pTag = document.createElement('p');
+    // pTag.classList.add('card-text');
+    addClass(pTag, 'card-text')
+    divCardBody.appendChild(pTag);
+    
+    body.appendChild(divCardSingle);
+    }
+
+function addClass (htmlElement, ...args) {
+    for (let arg of args) htmlElement.classList.add(...args)
+}
+
+
 
 
 
@@ -99,3 +138,18 @@ for (let i = 0; i < members.length; i++) {
 }
 
 
+{/* <div class="card-single col-4 mb-4 text-center">
+<div class="card border-0 rounded-0">
+    <img src="http://127.0.0.1:5500/img/wayne-barnett-founder-ceo.jpg" class="card-img-top rounded-0" alt="...">
+    <div class="card-body rounded-0">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div> */}
+
+
+
+
+
+
+createCard()
