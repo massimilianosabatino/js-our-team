@@ -42,7 +42,7 @@ const cardBoard = document.getElementById('card-board');
 //Create card
 function createCard(cardTitle, cardText, cardImg) {
     const divCardSingle = document.createElement('div');
-    addClass(divCardSingle, 'card-single', 'col-4', 'mb-4', 'text-center');
+    addClass(divCardSingle, 'card-single', 'col-12', 'col-sm-4', 'mb-4', 'text-center');
     
     const divCard = document.createElement('div');
     addClass(divCard, 'card', 'border-0', 'rounded-0');
