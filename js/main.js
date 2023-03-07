@@ -35,20 +35,11 @@ const members = [
 
 //Page element
 const cardBoard = document.getElementById('card-board');
-//const div = createDomElement('div');
-
 
 /*
 *  Functions
 */
-// function createDomElement(elementTag, text) {
-//     //const fragment = document.createDocumentFragment();
-//     const element = document.createElement(elementTag);
-//     element.innerText = text;
-//     //fragment.append(element);
-//     return element;
-// }
-
+//Create card
 function createCard(cardTitle, cardText, cardImg) {
     const divCardSingle = document.createElement('div');
     addClass(divCardSingle, 'card-single', 'col-4', 'mb-4', 'text-center');
@@ -79,65 +70,16 @@ function createCard(cardTitle, cardText, cardImg) {
     cardBoard.appendChild(divCardSingle);
     }
 
+//Add multiple class to html element
 function addClass (htmlElement, ...args) {
     for (let arg of args) htmlElement.classList.add(...args)
 }
 
 
-
-
-
 /*
-//Stampa intero array
-console.log(members);
-//Stampa oggetto contenuto in posizione 0 dell'array
-console.log(members[0]);
-//Stampa valori di ogni chiave richiamata per l'oggetto in posizione 0 dell'array
-console.log(members[0].name);
-console.log(members[0].role);
-console.log(members[0].photo);
+*  Main
 */
-
-
-/////////Per esercizio senza bonus
-// //Ciclo all'interno dell'array per estrapolare i singoli oggetti
-// for (let i = 0; i < members.length; i++) {
-//     const member = members[i];
-//     //let memberValue = [];
-//     //Per ogni ciclo crea un div dove appendere i vari elementi
-//     const div = createDomElement('div', '');
-//     //Stampa ogni singolo oggetto presente nell'array
-//     //console.log(member);
-//     //Ciclo all'interno di un oggetto per estrapolare i valori delle singole chiavi
-//     for (const key in member) {
-//         /*
-//         //Stampa prima il nome della chiave e poi il valore
-//         console.log(key);
-//         console.log(member[key]);
-//         */
-//         //Stampa il valore di ogni chiave dell'oggetto 
-//         console.log(member[key]);
-//         //Inserisce in un array i singoli valori
-//         //memberValue.push(member[key]);
-
-//         //Controlla se il valore è un url o no e inserisce tutto in tag p da inserire nel div contenitore
-//         if (key === 'photo') {
-//             const img = createDomElement('img', '');
-//             img.src = `img/${member[key]}`;
-//             div.append(img);
-//         } else {
-//             const pTag = createDomElement('p', member[key]);
-//             div.append(pTag);
-//         }
-//     }
-
-//     main.append(div);
-
-// }
-////////////FINE
-
-
-//Ciclo array per singola card
+//Cicle array and extract object value
 for (let i = 0; i < members.length; i++) {
     const member = members[i];
     createCard(member.name, member.role, `img/${member.photo}`)
