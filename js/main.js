@@ -82,7 +82,7 @@ function createCard(cardTitle, cardText, cardImg) {
 
 //Add multiple class to html element
 function addClass (htmlElement, ...args) {
-    for (let arg of args) htmlElement.classList.add(...args)
+    /*for (let arg of args)*/ htmlElement.classList.add(...args)
 }
 
 //Add new card from user input
